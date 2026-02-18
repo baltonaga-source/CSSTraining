@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Careers at MHRC | Eleos AI Launch Highlight</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <style>
+    :root {
+      --turquoise: #12B8B0;
+      --turquoise-soft: #E0FBF9;
+      --gold: #FFC94A;
+      --gold-soft: #FFF7DF;
+      --black: #050816;
+      --bg: #050816;
+      --surface: #0B1020;
+      --card: #0F172A;
+      --border: rgba(148, 163, 184, 0.35);
+      --text-main: #E5E7EB;
+      --text-muted: #94A3B8;
+      --white: #FFFFFF;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.65);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top, #0F172A 0, var(--bg) 48%, #020617 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-shell {
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 32px 16px 40px;
+    }
+
+    .frame {
+      width: 100%;
+      max-width: 1120px;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.96));
+      border-radius: 26px;
+      border: 1px solid rgba(148, 163, 184, 0.38);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(18, 184, 176, 0.26) 0, transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(255, 201, 74, 0.18) 0, transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .frame-inner {
+      position: relative;
+      z-index: 1;
+      padding: 22px 26px 26px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 20% 20%, #ECFEFF 0, #0F766E 36%, #0B1120 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 14px 30px rgba(15, 118, 110, 0.65);
+    }
+
+    .brand-mark span {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: #E5F7F8;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-size: 0.98rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #E5E7EB;
+    }
+
+    .brand-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .launch-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 6px 14px;
+      border: 1px solid rgba(250, 250, 250, 0.16);
+      background: linear-gradient(120deg, rgba(18, 184, 176, 0.18), rgba(15, 23, 42, 0.6));
+      color: #E5E7EB;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .launch-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22C55E;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3.1fr) minmax(0, 2.2fr);
+      gap: 26px;
+      padding: 18px 4px 10px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--turquoise);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .hero-title {
+      font-size: 2.05rem;
+      line-height: 1.25;
+      font-weight: 700;
+      color: #F9FAFB;
+      margin-bottom: 8px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, #5DF2DE, #FACC6B);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      max-width: 460px;
+    }
+
+    .hero-note {
+      font-size: 0.82rem;
+      color: #E5E7EB;
+      background: linear-gradient(120deg, rgba(18, 184, 176, 0.12), rgba(15, 23, 42, 0.9));
+      border-radius: 999px;
+      border: 1px solid rgba(45, 212, 191, 0.35);
+      padding: 6px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .hero-note-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--gold);
+    }
+
+    .hero-list {
+      list-style: none;
+      margin-top: 4px;
+    }
+
+    .hero-list li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .hero-list li::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 0.62em;
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--turquoise);
+    }
+
+    .go-live {
+      font-size: 0.82rem;
+      color: #F9FAFB;
+      background: radial-gradient(circle at left, rgba(251, 191, 36, 0.34), transparent 72%);
+      border-radius: 999px;
+      border: 1px solid rgba(250, 204, 21, 0.45);
+      padding: 7px 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .go-live strong { color: var(--gold); }
+
+    .hero-right {
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.95));
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 14px 14px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(94, 234, 212, 0.24) 0, transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-right-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-title {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .hero-card-heading {
+      font-size: 1.1rem;
+      color: #F9FAFB;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .hero-card-text {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .hero-mini-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .mini-metric {
+      background: rgba(15, 23, 42, 0.85);
+      border-radius: 999px;
+      padding: 6px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+    }
+
+    .mini-metric-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .mini-metric-value {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--turquoise);
+    }
+
+    .data-bar {
+      margin-top: 18px;
+      margin-bottom: 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      gap: 10px;
+    }
+
+    .data-chip {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 7px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 52px;
+    }
+
+    .data-number {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .data-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      padding: 12px 12px 14px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .card-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--turquoise);
+      background: rgba(18, 184, 176, 0.12);
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: #E5E7EB;
+      margin-bottom: 4px;
+    }
+
+    .mini-bar {
+      display: flex;
+      gap: 6px;
+      margin-top: 6px;
+      font-size: 0.8rem;
+      align-items: center;
+    }
+
+    .mini-bar-segment {
+      flex: 1;
+      background: #1F2937;
+      border-radius: 999px;
+      overflow: hidden;
+      height: 6px;
+      position: relative;
+    }
+
+    .mini-bar-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      border-radius: 999px;
+    }
+
+    .mini-bar-label {
+      color: var(--text-muted);
+    }
+
+    .links-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #E5E7EB;
+      margin: 4px 0 4px;
+    }
+
+    .links {
+      list-style: none;
+      font-size: 0.86rem;
+    }
+
+    .links li {
+      margin-bottom: 3px;
+    }
+
+    .links a {
+      color: var(--turquoise);
+      text-decoration: none;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    .cta-box {
+      margin-top: 14px;
+      padding: 10px 12px;
+      background: radial-gradient(circle at left, rgba(18, 184, 176, 0.35), rgba(15, 23, 42, 0.98));
+      color: var(--white);
+      border-radius: var(--radius-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .cta-text {
+      font-size: 0.9rem;
+    }
+
+    .cta-text span {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, var(--gold), var(--turquoise));
+      color: var(--black);
+      border-radius: 999px;
+      padding: 7px 16px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 10px 26px rgba(250, 204, 21, 0.45);
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: minmax(0, 1.1fr); }
+      .hero { gap: 18px; }
+    }
+
+    @media (max-width: 640px) {
+      .frame-inner { padding: 18px 16px 20px; }
+      h1 { font-size: 1.55rem; }
+      .header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class='page-shell'>
+    <div class='frame'>
+      <div class='frame-inner'>
+        <header class='header'>
+          <div class='brand-block'>
+            <div class='brand-mark'><span>MH</span></div>
+            <div class='brand-text'>
+              <div class='brand-name'>Mental Health Resource Center</div>
+              <div class='brand-sub'>Community-based behavioral health · Florida</div>
+            </div>
+          </div>
+          <div class='launch-pill'>
+            <span class='launch-dot'></span>
+            <span>Eleos AI Go‑Live · May 4, 2026</span>
+          </div>
+        </header>
+
+        <section class='hero'>
+          <div>
+            <div class='hero-tag'>Careers · Behavioral Health</div>
+            <h1 class='hero-title'>Grow Your Career Where <span>Care Meets Innovation</span></h1>
+            <p class='hero-subtitle'>
+              MHRC is partnering with Eleos Health to bring AI‑supported documentation and session insights to our
+              behavioral health teams starting May 4, 2026.
+            </p>
+            <div class='hero-note'>
+              <span class='hero-note-dot'></span>
+              <span>Join as we launch Eleos and help shape how this technology supports front‑line work at MHRC.</span>
+            </div>
+            <ul class='hero-list'>
+              <li>Built specifically for behavioral health, with evidence from community‑based programs.</li>
+              <li>Designed to complement our existing systems and support staff focus on the individuals we serve.</li>
+            </ul>
+            <div class='go-live'>
+              <strong>Go‑Live:</strong>
+              <span>Eleos begins across selected MHRC programs on May 4, 2026. New hires will be part of the rollout and early evaluation.</span>
+            </div>
+          </div>
+
+          <aside class='hero-right'>
+            <div class='hero-right-inner'>
+              <div class='hero-card-title'>Eleos at a Glance</div>
+              <div class='hero-card-heading'>AI support for your notes and your practice.</div>
+              <p class='hero-card-text'>
+                Eleos works alongside our EHR to turn sessions or short clinical summaries into structured clinical note
+                drafts that you review and finalize—keeping you in control while streamlining routine documentation.
+              </p>
+              <div class='hero-mini-metrics'>
+                <div class='mini-metric'>
+                  <div class='mini-metric-label'>Clinician Focus</div>
+                  <div class='mini-metric-value'>More time centered on care</div>
+                </div>
+                <div class='mini-metric'>
+                  <div class='mini-metric-label'>Evidence‑Informed</div>
+                  <div class='mini-metric-value'>Backed by RCTs and field data</div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class='data-bar'>
+          <div class='data-chip'>
+            <div class='data-number'>67%</div>
+            <div class='data-label'>More sessions attended when therapists used Eleos in a randomized trial.</div>
+          </div>
+          <div class='data-chip'>
+            <div class='data-number'>3–4×</div>
+            <div class='data-label'>Greater depression & anxiety symptom reduction vs. treatment as usual.</div>
+          </div>
+          <div class='data-chip'>
+            <div class='data-number'>55 hrs</div>
+            <div class='data-label'>Earlier average note submission in one Eleos study (14 vs. 69 hours).</div>
+          </div>
+          <div class='data-chip'>
+            <div class='data-number'>70%+</div>
+            <div class='data-label'>Reduction in documentation time reported at some community agencies.</div>
+          </div>
+        </section>
+
+        <section class='grid'>
+          <article class='card'>
+            <div class='card-pill'>Your workday</div>
+            <h2 class='card-title'>Documentation that fits into the day</h2>
+            <p>
+              Eleos helps turn live sessions or short clinical summaries into structured draft notes, so documentation
+              fits more naturally into the workday and teams can keep their focus on delivering high‑quality,
+              person‑centered care.
+            </p>
+            <div class='mini-bar'>
+              <div class='mini-bar-segment'>
+                <div class='mini-bar-fill' style='width: 70%; background: var(--turquoise);'></div>
+              </div>
+              <div class='mini-bar-label'>Some agencies report ≈70% less time spent on documentation.</div>
+            </div>
+          </article>
+
+          <article class='card'>
+            <div class='card-pill'>Client impact</div>
+            <h2 class='card-title'>Evidence of stronger outcomes</h2>
+            <p>
+              Studies of Eleos‑enabled care show higher client engagement and larger reductions in symptoms compared to
+              treatment as usual, including more visits attended and greater improvement in depression and anxiety.
+            </p>
+            <div class='mini-bar'>
+              <div class='mini-bar-segment'>
+                <div class='mini-bar-fill' style='width: 67%; background: var(--gold);'></div>
+              </div>
+              <div class='mini-bar-label'>67% more sessions attended in one randomized trial.</div>
+            </div>
+          </article>
+
+          <article class='card'>
+            <div class='card-pill'>Your experience</div>
+            <h2 class='card-title'>Supporting you while you support others</h2>
+            <p>
+              Community organizations using Eleos describe a more sustainable rhythm to their work: documentation
+              expectations are easier to meet, teams can stay centered on the individuals they serve, and leadership can
+              align schedules and supports around staff well‑being.
+            </p>
+            <div class='mini-bar'>
+              <div class='mini-bar-segment'>
+                <div class='mini-bar-fill' style='width: 80%; background: var(--turquoise);'></div>
+              </div>
+              <div class='mini-bar-label'>AI support so more of your energy goes into care, not keystrokes.</div>
+            </div>
+          </article>
+        </section>
+
+        <section class='card' style='margin-bottom: 14px;'>
+          <div class='links-title'>Want to see more of the data?</div>
+          <ul class='links'>
+            <li>
+              <a href='https://eleos.health/blog-posts/what-is-ai-for-behavioral-health/' target='_blank' rel='noopener'>What is Behavioral Health AI?</a>
+            </li>
+            <li>
+              <a href='https://eleos.health/blog-posts/enhancing-therapy-effectiveness-with-eleos/' target='_blank' rel='noopener'>Enhancing Therapy Effectiveness with Eleos (Randomized Study)</a>
+            </li>
+            <li>
+              <a href='https://eleos.health/science/' target='_blank' rel='noopener'>Eleos Science & Publications Library</a>
+            </li>
+          </ul>
+        </section>
+
+        <section class='cta-box'>
+          <div class='cta-text'>
+            We’re hiring <span>therapists, case managers, nurses, peers, and prescribers</span> who want to do meaningful
+            community work with tools that support better care and a healthier workday.
+          </div>
+          <a href='mailto:careers@mhrc.org?subject=MHRC%20Careers%20-%20Eleos%20Highlight' class='btn'>
+            Send your resume →
+          </a>
+        </section>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
